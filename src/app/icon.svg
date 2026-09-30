@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">DailyTransPosts DT favicon</title>
+  <rect width="64" height="64" rx="14" fill="#13232d"/>
+  <path d="M8 47.5 16.5 16h8.2l-8.4 31.5z" fill="#e75d3f"/>
+  <text x="22" y="43" fill="#fffdf8" font-family="Georgia,serif" font-size="27" font-weight="700" letter-spacing="-2">DT</text>
+  <circle cx="51" cy="13" r="4" fill="#e75d3f"/>
+</svg>
