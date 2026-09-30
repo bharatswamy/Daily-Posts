@@ -1,0 +1,2 @@
+"use client";
+export function ShareActions({ title }: { title: string }) { return <div className="share-actions"><span>Share</span><button onClick={() => navigator.clipboard?.writeText(window.location.href)}>Copy link</button><a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(typeof window === "undefined" ? "" : window.location.href)}`} target="_blank" rel="noreferrer">Post on X</a></div>; }

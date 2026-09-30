@@ -1,0 +1,2 @@
+import type { MetadataRoute } from "next"; import { getAllCategories, getAllPosts } from "@/lib/content"; import { site } from "@/lib/site";
+export default function sitemap(): MetadataRoute.Sitemap { const now = new Date(); return [{url:site.domain,lastModified:now}, ...getAllCategories().map((category)=>({url:`${site.domain}/category/${category.slug}`,lastModified:now})), ...getAllPosts().map((post)=>({url:`${site.domain}/blog/${post.slug}`,lastModified:new Date(post.updatedAt || post.publishedAt)}))]; }
