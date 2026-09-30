@@ -27,6 +27,46 @@ test("categories and blogs discovery pages exist", () => {
   assert.equal(fs.existsSync("src/app/blogs/page.tsx"), true);
 });
 
+test("categories directory has its own scroll and hover motion system", () => {
+  const page = fs.readFileSync("src/app/categories/page.tsx", "utf8");
+  const css = fs.readFileSync("src/app/globals.css", "utf8");
+  assert.match(page, /category-atlas/);
+  assert.match(page, /atlas-tile/);
+  assert.match(page, /<Reveal/);
+  assert.match(css, /atlas-sweep/);
+  assert.match(css, /atlas-float/);
+});
+
+test("categories directory has a featured doorway and interactive tile depth", () => {
+  const page = fs.readFileSync("src/app/categories/page.tsx", "utf8");
+  const css = fs.readFileSync("src/app/globals.css", "utf8");
+  assert.match(page, /atlas-spotlight/);
+  assert.match(page, /atlas-rail/);
+  assert.match(css, /atlas-spotlight/);
+  assert.match(css, /atlas-tile-depth/);
+});
+
+test("blogs directory has an editorial showcase and animated filters", () => {
+  const page = fs.readFileSync("src/app/blogs/page.tsx", "utf8");
+  const css = fs.readFileSync("src/app/globals.css", "utf8");
+  assert.match(page, /blog-library/);
+  assert.match(page, /blog-showcase/);
+  assert.match(page, /library-filter/);
+  assert.match(page, /<Reveal/);
+  assert.match(css, /blog-showcase/);
+  assert.match(css, /library-filter/);
+});
+
+test("blogs directory progressively reveals the article library", () => {
+  const page = fs.readFileSync("src/app/blogs/page.tsx", "utf8");
+  const loader = fs.readFileSync("src/components/load-more-posts.tsx", "utf8");
+  assert.match(page, /LoadMorePosts/);
+  assert.match(page, /initialVisible/);
+  assert.match(loader, /useState/);
+  assert.match(loader, /Load more articles/);
+  assert.match(loader, /remainingPosts/);
+});
+
 test("category pages use the premium editorial layout and explicit home link", () => {
   const page = fs.readFileSync("src/app/category/[slug]/page.tsx", "utf8");
   assert.match(page, /category-hero/);
