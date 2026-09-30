@@ -18,3 +18,12 @@ test("homepage uses motion-friendly reveal wrappers without rendered article ima
   assert.doesNotMatch(page, /next\/image/);
   assert.doesNotMatch(page, /<Image/);
 });
+
+test("homepage has the original interactive gallery treatment", () => {
+  const page = fs.readFileSync("src/app/page.tsx", "utf8");
+  const css = fs.readFileSync("src/app/globals.css", "utf8");
+  assert.match(page, /interactive-panel/);
+  assert.match(page, /gallery-section/);
+  assert.match(css, /panel-glow/);
+  assert.match(css, /gallery-card-hover/);
+});
