@@ -7,6 +7,8 @@ import { NewsletterCta } from "@/components/newsletter-cta";
 import { Reveal } from "@/components/reveal";
 import { JsonLd } from "@/components/seo-json-ld";
 import { site } from "@/lib/site";
+import { LivingNewsUniverse } from "@/components/living-news-universe";
+import { InformationMachine } from "@/components/homepage/information-machine";
 
 export default function HomePage() {
   const posts = getAllPosts();
@@ -19,6 +21,8 @@ export default function HomePage() {
     <SiteHeader />
     <main>
       <section className="hero hero-redesign interactive-panel">
+        <LivingNewsUniverse topics={[featured.categorySlug, ...latest.map((post) => post.categorySlug)]} />
+        <InformationMachine topics={[featured.categorySlug, ...latest.map((post) => post.categorySlug)]} />
         <div className="hero-orbit orbit-one" aria-hidden="true" /><div className="hero-orbit orbit-two" aria-hidden="true" />
         <div className="shell hero-grid">
           <div className="hero-copy">
