@@ -8,6 +8,8 @@ test("homepage includes the redesigned editorial interaction sections", () => {
   assert.match(page, /publication-stats/);
   assert.match(page, /editorial desk/);
   assert.match(page, /scroll-cue/);
+  assert.match(page, /new-blogs-section/);
+  assert.match(page, /New blogs/);
 });
 
 test("homepage uses motion-friendly reveal wrappers without rendered article images", () => {

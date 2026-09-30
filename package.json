@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test": "node --test tests/content-library.test.mjs tests/routes.test.mjs tests/navigation.test.mjs tests/article-layout.test.mjs tests/homepage.test.mjs tests/scroll-animation.test.mjs tests/favicon.test.mjs",
+    "test": "node --test tests/content-library.test.mjs tests/routes.test.mjs tests/navigation.test.mjs tests/article-layout.test.mjs tests/homepage.test.mjs tests/scroll-animation.test.mjs tests/favicon.test.mjs tests/additive-content.test.mjs",
     "validate:content": "node scripts/validate-content.mjs"
   },
   "dependencies": {

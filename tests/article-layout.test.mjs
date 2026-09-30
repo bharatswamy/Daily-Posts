@@ -7,4 +7,6 @@ test("article reading layout places the article body before the table of content
   const bodyIndex = page.indexOf("<ArticleBody sections={post.body}/>");
   const tocIndex = page.indexOf("className=\"toc\"");
   assert.ok(bodyIndex >= 0 && tocIndex >= 0 && bodyIndex < tocIndex);
+  assert.match(page, /BreadcrumbList/);
+  assert.match(page, /itemListElement/);
 });
