@@ -32,6 +32,9 @@ test("category pages use the premium editorial layout and explicit home link", (
   assert.match(page, /category-hero/);
   assert.match(page, /category-featured/);
   assert.match(page, /category-home-link/);
+  assert.match(page, /category-meta-strip/);
+  assert.match(page, /category-story-row/);
+  assert.match(page, /category-switcher/);
   assert.match(page, /Related categories/);
 });
 

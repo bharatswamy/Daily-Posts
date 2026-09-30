@@ -52,6 +52,8 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       <div className="shell category-content">
         <JsonLd value={{ "@context": "https://schema.org", "@type": "CollectionPage", name: category.name, url: `${site.domain}/category/${category.slug}`, description: category.description }} />
         <JsonLd value={breadcrumbJsonLd} />
+        <div className="category-meta-strip"><div><span className="eyebrow">In this desk</span><strong>{posts.length} stories</strong></div><div><span className="eyebrow">Format</span><strong>Guides & ideas</strong></div><div><span className="eyebrow">Explore next</span><Link href="/blogs">All blogs ↗</Link></div></div>
+        <nav className="category-switcher" aria-label="Browse categories">{getAllCategories().slice(0, 7).map((item) => <Link className={item.slug === category.slug ? "active" : ""} href={`/category/${item.slug}`} key={item.slug}>{item.name}</Link>)}<Link href="/categories">All categories ↗</Link></nav>
         <section className="category-featured" aria-labelledby="featured-heading">
           <div className="category-section-label"><span className="eyebrow" id="featured-heading">Start here</span><span className="section-index">01 / FEATURED</span></div>
           <div className="category-featured-grid">
@@ -61,7 +63,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
         </section>
         <section className="category-library" aria-labelledby="library-heading">
           <div className="category-section-label"><div><span className="eyebrow">The full desk</span><h2 id="library-heading" className="display">More from {category.name}.</h2></div><span className="section-index">02 / LIBRARY</span></div>
-          <div className="category-list">{remaining.map((post) => <ArticleCard key={post.slug} post={post} />)}</div>
+          <div className="category-story-list">{remaining.map((post, index) => <Link href={`/blog/${post.slug}`} className="category-story-row" key={post.slug}><span className="category-story-number">{String(index + 4).padStart(2, "0")}</span><span className="category-story-copy"><span className="eyebrow">{category.name}</span><strong className="display">{post.title}</strong><span>{post.excerpt}</span><small>{post.author.name} · {new Date(post.publishedAt).toLocaleDateString("en-IN", { month: "short", day: "numeric", year: "numeric" })}</small></span><span className="category-story-arrow" aria-hidden>↗</span></Link>)}</div>
         </section>
         <section className="related-categories" aria-labelledby="related-heading">
           <div className="category-section-label"><div><span className="eyebrow">Keep exploring</span><h2 id="related-heading" className="display">Related categories.</h2></div></div>
